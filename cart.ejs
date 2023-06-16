@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Košarica</title>
+    <link rel="stylesheet" href="/styles/styleCard.css">
+
+</head>
+
+<body>
+
+    <div class="nepromjenjiv">
+        <div id="zaglavlje">
+            <h1> TeaT's STORE</h1>
+            <div class="container">
+                <p id="logo">TT's</p>
+
+                <div id="kosara">
+                    <button id="kolica" onclick="openCart()">
+                    <img  src="/images/kolica.jpg" width="30px" height="30px">
+     </button>
+                    <span id="amount"><%= broj %></span>
+                    <img src="/images/search.jpg" width="30px" height="30px">
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div id="kont">
+        <p id="kosarica">KOŠARICA</p><br>
+        <p id="naziv">NAZIV PROIZVODA</p>
+        <p id="kolicina">KOLIČINA</p>
+    </div>
+
+    <div class="MyListCard" id="MyListCard">
+        <% cart.forEach(function(item) { %>
+
+            <div class="cartList">
+
+                <span id="namePr"><%= item.name %></span>
+
+                <span id="diokolic">
+                    
+           <form action="/cart/remove/<%=item.id%>" method="post">
+            <input type="hidden" name="id" value="<%=item.id %>">
+            <input type="hidden" name="name" value="<%=item.name %>">
+            <input type="hidden" name="cnt" value="<%=item.cnt %>">
+            <input type ="button" id="minus" value="-"onclick="this.parentNode.submit(); return false;">
+            
+            </form>
+            <span id ="kolpr"><%= item.cnt %></span>
+
+                <form action="/cart/addCart/<%=item.id%>" method="post">
+                    <input type="hidden" name="id" value="<%=item.id %>">
+                    <input type="hidden" name="name" value="<%=item.name %>">
+                    <input type="hidden" name="cnt" value="<%=item.cnt %>">
+                    <input type="button" id="plus" value="+" onclick="this.parentNode.submit(); return false;">
+
+                </form>
+                </span>
+            </div>
+
+            <% }); %>
+    </div>
+</body>
+
+
+</html>

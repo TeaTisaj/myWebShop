@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeaT's Store</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <h1> TeaT's STORE</h1>
+    <div class="container">
+        <p id="logo">TT's</p>
+        <p id="otvorenaKAT">
+            <%=kat%>
+        </p>
+
+        <div id="kosara">
+            <button id="kolica" onclick="location.href='cart.ejs', refresh()">
+                <img src="/images/kolica.jpg" width="30px" height="30px">
+            </button>
+            <span id="amount"><%=broj%></span>
+            <img src="/images/search.jpg" width="30px" height="30px">
+        </div>
+
+        <div id="ulaznaSl">
+            <p id="pozdrav">Welcome back!</p>
+            <img id="slikaPoz" src="/images/backgrshopp.jpg" width="auto" height="70%">
+        </div>
+
+        <main id="main">
+
+            <div class="defaultni">
+                <% products.forEach(proizv => { %>
+
+                    <div class="box">
+                        <img class="slikaProd" src="../../<%=proizv.image%>" alt="">
+
+                        <form action="/cart/add/<%=proizv.id %>" method="post">
+                            <input type="hidden" name="id" value="<%=proizv.id %>">
+                            <input type="hidden" name="name" value="<%=proizv.name %>">
+                            <input type="hidden" name="cnt" value="<%=proizv.cnt %>">
+
+                            <img id="kosaricaPokretna" class="kosaricaPokretna" src="../../images/kolica.jpg" onclick="
+                            this.parentNode.submit(); 
+                            document.getElementById('amount').innerHTML++;
+                              
+                            return false;
+                            ">
+
+                        </form>
+
+
+
+                        <p>
+                            <%= proizv.name %>
+                        </p>
+
+
+                    </div>
+
+                    <% }); %>
+
+
+
+
+            </div>
+        </main>
+        <div class="sidebarKategorija">
+            <ul class="katMenu">
+
+
+
+                <% categories.forEach(category => { %>
+                    <a href="#" onclick="
+                document.getElementById('otvorenaKAT').innerHTML =  '<%=category.name%>';
+                return false;">
+                        <li>
+                            <form method="get" action="/home/getProducts/<%= category.id %>">
+                                <a href="#" onclick="this.parentNode.submit();
+                            document.getElementById('otvorenaKAT').innerHTML =  '<%=category.name%>';
+                            return false;">
+                                    <%=category.name %>
+                                </a>
+
+                            </form>
+                        </li>
+
+                        <% }); %>
+
+            </ul>
+        </div>
+        <div id="sidebarNewsletter">
+            <pre>
+                <button id="Kontakt">Kontakt</button>
+                <button id="Newsletter">Newsletter</button>
+                <button id="Pretplati se">Pretplati se</button>
+            </pre>
+        </div>
+    </div>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,166 @@
+* {
+    background-color: rgb(240, 219, 191);
+    font: italic;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: rgb(136, 38, 167);
+    background-color: rgb(240, 219, 191);
+    font-weight: bold;
+    font-style: italic;
+    grid-area: naslov;
+}
+
+.container {
+    /* background-image: url("images/background4.jpg");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: zaglavlje;
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "logo logo logo trazilica";
+}
+
+#logo {
+    background-color: rgb(171, 92, 173);
+    color: azure;
+    font: italic;
+    font-size: large;
+    grid-area: logo;
+    transform: skew(-20deg);
+    text-align: center;
+}
+
+#kosara {
+    position: relative;
+    font-size: 30px;
+    color: red;
+    grid-area: trazilica;
+    display: flex;
+    align-items: center;
+}
+
+#kolica {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    /* dodano */
+}
+
+#amount {
+    position: relative;
+    top: -20px;
+    right: +10px;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#kupnja {
+    max-width: 30%;
+    height: auto;
+}
+
+#kosarica {
+    font-size: 50px;
+    text-align: center;
+    color: rgb(136, 38, 167);
+    background-color: rgb(240, 191, 236);
+    font-weight: bold;
+    font-style: italic;
+    grid-area: kosarica;
+}
+
+#kolicina {
+    grid-area: kolicina;
+    text-align: right;
+    background-color: rgb(126, 78, 126);
+    color: white;
+    font-size: x-large;
+    margin-right: 10rem;
+}
+
+#naziv {
+    grid-area: naziv;
+    background-color: rgb(99, 2, 99);
+    color: white;
+    font-size: x-large;
+    margin-left: 10rem;
+}
+
+#MyListCard {
+    grid-area: mylist;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    background-color: aquamarine;
+}
+
+.cartList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#namePr {
+    margin-right: 1rem;
+    font-size: large;
+}
+
+#diokolic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+
+#kolpr {
+    margin: 0 0.5rem;
+}
+
+#MyListCard button {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+#kont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.3fr 1 fr 1fr;
+    grid-template-areas: "kosarica kosarica" "naziv  kolicina" "mylist  mylist" "mylist  mylist";
+}
+
+@media only screen and (max-width:1024px) {
+    #kont {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1 fr 1 fr;
+        grid-template-areas: "kosarica kosarica" "naziv  kolicina" "naziv  kolicina" "naziv  kolicina";
+    }
+    .container {
+        /* background-image: url("images/background4.jpg");*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: zaglavlje;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "logo  trazilica";
+    }
+}

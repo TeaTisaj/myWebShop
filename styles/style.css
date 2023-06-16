@@ -1,0 +1,215 @@
+* {
+    background-color: #eeb2eb;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+    color: rgb(136, 38, 167);
+    background-color: rgb(240, 219, 191);
+    font-weight: bold;
+    font-style: italic;
+    grid-area: naslov;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.5fr 1fr;
+    grid-template-areas: "logo otvorenakat otvorenakat trazilica" "sidebarKategorija ulaznaSl ulaznaSl ulaznaSl" "sidebarKategorija main main main" "sidebarNewsletter  main main main";
+    grid-gap: 0.3rem;
+}
+
+#kosara {
+    position: relative;
+    font-size: 30px;
+    color: red;
+    grid-area: trazilica;
+    display: flex;
+    align-items: center;
+}
+
+#kolica {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    /* dodano */
+}
+
+.defaultni image {
+    width: 10rem;
+    height: auto;
+}
+
+#amount {
+    position: relative;
+    top: -20px;
+    right: +10px;
+    font-size: 16px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#ulaznaSl {
+    background-color: rgb(31, 127, 134);
+    background-repeat: no-repeat;
+    height: 40rem;
+    grid-area: ulaznaSl;
+}
+
+#logo {
+    background-color: rgb(171, 92, 173);
+    color: azure;
+    font: italic;
+    font-size: large;
+    grid-area: logo;
+    transform: skew(-20deg);
+    text-align: center;
+}
+
+.sidebarKategorija {
+    background-color: purple;
+    color: antiquewhite;
+    font-size: bold;
+    font: italic;
+    font-size: large;
+    grid-area: sidebarKategorija;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebarKategorija button {
+    background-color: purple;
+    font-size: 0.8em;
+    color: white;
+    margin: 5px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+#sidebarNewsletter {
+    background-color: rgb(92, 72, 92);
+    color: rgb(70, 2, 70);
+    font-size: bold;
+    font: italic;
+    font-size: large;
+    grid-area: sidebarNewsletter;
+}
+
+#otvorenaKAT {
+    background-color: rgb(124, 105, 124);
+    color: rgb(255, 252, 254);
+    grid-area: otvorenakat;
+}
+
+.box {
+    position: relative;
+}
+
+.kosaricaPokretna {
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+}
+
+.box:hover .kosaricaPokretna {
+    opacity: 1;
+}
+
+.slikaProd {
+    width: 480 px;
+    height: auto;
+}
+
+#pozdrav {
+    background-color: aqua;
+    font-style: italic;
+    color: blue;
+    text-align: center;
+}
+
+main {
+    grid-area: main;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main img {
+    width: 10rem;
+    height: auto;
+}
+
+button {
+    background-color: #eeb2eb;
+    border: none;
+    color: rgb(129, 4, 113);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.catalog-item:hover img {
+    display: block;
+}
+
+.button-cart {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: transparent;
+}
+
+.cart-item-image {
+    display: none;
+    position: absolute;
+    top: 58%;
+    right: 40%;
+    width: 20px;
+    background-color: Urgb(213, 213, 213);
+    padding: 5px;
+    border-radius: 10px;
+    -webkit-box-shadow: 7px 10px 22px -6px Irgba(0, 0, 0, 0.64);
+    -moz-box-shadow: 7px 10px 22px -6px Irgba(0, 0, 0, 0.64);
+    box-shadow: 7px 10px 22px -6px Irgba(0, a, 0, 0.64);
+}
+
+@media only screen and (max-width:1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.3fr 0.6fr 0.6fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "logo logo logo" "otvorenakat otvorenakat trazilica" "ulaznaSl ulaznaSl ulaznaSl" "sidebarKategorija main main" "sidebarKategorija main main""sidebarKategorija main main" "sidebarNewsletter main main";
+    }
+    #ulaznaSl {
+        background-color: rgb(31, 127, 134);
+        background-repeat: no-repeat;
+        grid-area: ulaznaSl;
+        width: 60%;
+        grid-column: 1 / -1;
+        /* proteže se do kraja reda */
+    }
+    main {
+        grid-area: main;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    main img {
+        display: inline-block;
+        height: 10rem;
+        width: auto;
+    }
+}
